@@ -1,7 +1,7 @@
-# Tutorial: Create an MLCube 
-Interested in getting started with MLCube? Follow the instructions in this tutorial.    
+# Tutorial: Create an MLCube™ 
+Interested in getting started with MLCube™? Follow the instructions in this tutorial.    
 ## Step 1: Setup   
-Get MLCube, MLCube examples and MLCube Templates, and CREATE a Python environment.
+Get MLCube™, MLCube™ examples and MLCube™ Templates, and CREATE a Python environment.
 ```
 # You can clone the mlcube examples and templates from GtiHub
 git clone https://github.com/mlcommons/mlcube_examples
@@ -14,8 +14,8 @@ pip install mlcube mlcube-docker cookiecutter
 ```
 
 ## Step 2: Configure MLCube using the mlcube_cookiecutter 
-Let's use the 'matmult' example, that we downloaded in the previous step, to illustrate how to make an MLCube. Matmul is a simple matrix multiply example written in Python with TensorFlow. 
-When you create an MLCube for your own model you will use your own code, data and dockerfile.
+Let's use the 'matmul' example, that we downloaded in the previous step, to illustrate how to make an MLCube™. 'matmul' is a simple matrix multiply example written in Python with TensorFlow. 
+When you create an MLCube™ for your own model you will use your own code, data and dockerfile.
  
 ```
 cd mlcube_examples
@@ -23,10 +23,10 @@ cd mlcube_examples
 
 mv ./matmul ./matmul_reference
 
-# create a mlcube directory using mlcube template(note: do not use quotes in your input to cookiecutter): name = matmul, author = MLPerf Best Practices Working Group  
+# create a mlcube directory using mlcube template (note: do not use quotes in your input to cookiecutter): name = matmul, author = MLPerf Best Practices Working Group  
 cookiecutter https://github.com/mlcommons/mlcube_cookiecutter.git
 
-# copy the matmul.py,Dockerfile and requirements.txt to your mlcube_matmul/build directory
+# copy the matmul.py, Dockerfile and requirements.txt to your mlcube_matmul/build directory
 cp -R  matmul_reference/build  matmul
 
 # copy input file for matmul to workspace directory
@@ -42,9 +42,9 @@ cd ./matmul
 
 Cookiecutter has modified the lines shown in **bold** in the mlcube.yaml file shown here:
 <pre><code> 
-# This YAML file marks a directory to be an MLCube directory. When running MLCubes with runners, MLCube path is
+# This YAML file marks a directory to be an MLCube™ directory. When running MLCubes with runners, the MLCube™ path is
 # specified using `--mlcube` runner command line argument.
-# The most important parameters that are defined here are (1) name, (2) author and (3) list of MLCube tasks.
+# The most important parameters that are defined here are (1) name, (2) author and (3) list of MLCube™ tasks.
 schema_version: 1.0.0
 schema_type: mlcube_root
 
@@ -165,7 +165,7 @@ Edit the docker image name in docker.yaml.  Change "image: "mlcube/matmul:0.0.1"
 # Platform configuration files define where and how runners run MLCubes. This configuration file defines a Docker
 # runtime for MLCubes. One field need to be updated here - `container.image`. This platform file defines local docker
 # execution environment.
-# MLCube Docker runner uses image name to either `pull` or `build` a docker image. The rule is the following:
+# The MLCube Docker runner uses image name to either `pull` or `build` a docker image. The rule is the following:
 #   - If the following file exists (`build/Dockerfile`), Docker image will be built.
 #   - Else, docker runner will pull a docker image with the specified name.
 # Users provide platform files using `--platform` command line argument.
@@ -180,7 +180,7 @@ container:
 </code></pre>
 
 ## Step 3. Create a Dockerfile for your model container image
-You will need a docker image to create an MLCube.  We will use the Dockerfile for 'matmul' to create a docker container image:   
+You will need a docker image to create an MLCube™.  We will use the Dockerfile for 'matmul' to create a docker container image:   
 <sub><sup><span style="color:blue">Note: the last line of the Dockerfile must be    
 "ENTRYPOINT ["python3", "/workspace/your_mlcube_name.py"]" as shown below.</span></sup></sub> 
 
@@ -220,7 +220,7 @@ cd ..
 mlcube_docker configure --mlcube=. --platform=platforms/docker.yaml
 ```
 
-## Step 5: Test your MLCube
+## Step 5: Test your MLCube™
 ```
 mlcube_docker run --mlcube=. --platform=platforms/docker.yaml --task=run/matmul.yaml
 ls ./workspace
